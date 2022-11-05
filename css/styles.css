@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
 
-* {
-    transition: all 0.4s;
-}
-
 body {
     margin: 0;
     color: #000000;
@@ -22,7 +18,6 @@ h2 {
     font-weight: 700;
     color: #FFFFFF;
     text-shadow: 2px 2px #454545;
-    width: 50%;
     margin: 0 0 32px;
 }
 
@@ -121,6 +116,7 @@ h2 {
     line-height: 14px;
     padding: 0 20px;
     cursor: pointer;
+    transition: all 0.4s;
 }
 
 .btn-primary {
@@ -201,11 +197,14 @@ h2 {
 }
 
 .trail-card {
-    width: 215px;
+    margin-right: 22px;
     padding: 10px;
     background-color: #FFFFFF;
     border-radius: 8px;
     overflow: hidden;
+}
+.trail-card:last-child {
+    margin-right: 0
 }
 
 .trail-card p {
@@ -214,5 +213,132 @@ h2 {
     line-height: 120%;
     letter-spacing: 0.02em;
     color: #666666;
+}
+.trail-card .btn {
+    width: 40%;
+    height: 32px;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .menu-header {
+        display: none;
+    }
+    .menu-header,
+    .btns-header {
+        display: none;
+    }
+    h2 {
+        font-size: 28px;
+    }
+    .wrapper {
+        width: 95%;
+    }
+    .trails-list {
+        justify-content: normal;
+    }
+    .trail-card {
+        min-width: 166px;
+        margin-right: 16px;
+    }
+    .trail-card p,
+    .trail-card .btn {
+        font-size: 12px;
+    }
+    .trail-card .btn {
+        height: 24px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .menu-header {
+        display: none;
+    }
+    .menu-header,
+    .btns-header {
+        display: none;
+    }
+    h2 {
+        font-size: 54px;
+    }
+    .wrapper {
+        width: 580px;
+    }
+    .trails-list {
+        justify-content: normal;
+    }
+    .trail-card {
+        min-width: 300px;
+        margin-right: 28px;
+    }
+    .trail-card p,
+    .trail-card .btn {
+        font-size: 21px;
+    }
+    .trail-card .btn {
+        height: 42px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .wrapper {
+        width: 748px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .menu-header,
+    .btns-header {
+        display: inherit;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    .wrapper {
+        width: 906px;
+    }
+    .trail-card {
+        min-width: 380px;
+        margin-right: 36px;
+    }
+    .trail-card:last-child {
+        margin-right: 0;
+    }
+    .trail-card p,
+    .trail-card .btn {
+        font-size: 28px;
+    }
+    .trail-card .btn {
+        height: 55px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .wrapper {
+        width: 1010px;
+    }
+    .trails-list {
+        justify-content: space-between;
+    }
+    .trail-card {
+        min-width: auto;
+        margin-right: 22px;
+    }
+    .trail-card:last-child {
+        margin-right: 0;
+    }
+    .trail-card p,
+    .trail-card .btn {
+        font-size: 16px;
+    }
+    .trail-card .btn {
+        height: 32px;
+    }
 }
 
