@@ -1,22 +1,23 @@
-// Get the modal
 const modal = document.getElementById("modal-video");
+const youtube = document.getElementById("youtube-video");
+const close = document.getElementsByClassName("close")[0];
 
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
-
-// Open the modal
 function openModal() {
     modal.style.display = "block";
+    youtube.src = "https://www.youtube.com/embed/nhsu9ZbnwVY";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+close.onclick = function() {
+    closeModal();
 }
 
-// When the user clicks anywhere outside the modal, close it
 window.onclick = function(event) {
     if (event.target === modal) {
-        modal.style.display = "none";
+        closeModal()
     }
+}
+
+function closeModal(){
+    modal.style.display = "none";
+    youtube.src = "";
 }

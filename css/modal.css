@@ -25,7 +25,7 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 560px;
+    max-width: 560px;
 }
 
 .modal-content p {
@@ -56,4 +56,8 @@
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+#youtube-video {
+    background-color: #F1F1F1;
 }
