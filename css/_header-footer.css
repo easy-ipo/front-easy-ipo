@@ -15,7 +15,12 @@
     display: flex;
 }
 
-.logo img {
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo a img {
     width: 100%;
     height: auto;
 }
