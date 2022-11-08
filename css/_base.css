@@ -33,11 +33,6 @@ h2 {
     flex-direction: column;
 }
 
-.content section {
-    margin: 32px 0;
-}
-
-
 .btn {
     height: 32px;
     font-size: 14px;
