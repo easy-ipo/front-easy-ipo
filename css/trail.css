@@ -1,0 +1,45 @@
+@import "_base.css";
+@import "_header-footer.css";
+@import "_menu-mobile.css";
+
+.trail-step {
+    height: 200px;
+    display: flex;
+}
+
+.trail-step:nth-child(odd) {
+    justify-content: start;
+}
+.trail-step:nth-child(even) {
+    justify-content: end;
+}
+
+.trail-pin {
+    width: 85px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    background: no-repeat url("../images/pin.svg") scroll center center;
+    background-size: contain;
+}
+.trail-pin.user-pin {
+    justify-content: start;
+    width: 150px;
+    height: 140px;
+    background: no-repeat url("../images/user-pin.svg") scroll center center;
+    background-size: contain;
+}
+.trail-pin.user-pin span {
+    color:#FFFFFF;
+    margin-left: 30px;
+}
+.trail-pin span {
+    font-weight: bold;
+    color: #03AC00;
+    font-size: 42px;
+    margin-top: 16px;
+}
+.trail-pin img {
+    width: 100%;
+    height: auto;
+}

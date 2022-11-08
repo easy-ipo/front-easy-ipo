@@ -3,6 +3,13 @@
 @import "_menu-mobile.css";
 @import "_modal.css";
 
+
+.content-home {
+    background-color: rgba(3, 172, 0, 0.8);
+    display: flex;
+    padding: 32px 0;
+}
+
 .main-title p {
     font-size: 24px;
     color: #FFFFFF;
