@@ -110,6 +110,9 @@
     .trail-card .btn {
         height: 24px;
     }
+    .trails-slider {
+        overflow: scroll;
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -127,6 +130,9 @@
     }
     .trail-card .btn {
         height: 42px;
+    }
+    .trails-slider {
+        overflow: scroll;
     }
 }
 
@@ -170,6 +176,9 @@
     }
     .trail-card .btn {
         height: 32px;
+    }
+    .trails-slider {
+        overflow: hidden;
     }
 }
 

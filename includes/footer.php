@@ -2,7 +2,7 @@
     <div class="wrapper">
 
         <div class="logo">
-            <a href="/" title="Home"><img src="images/easy-ipo.svg" alt="Easy IPO"></a>
+            <a href="index.php" title="Home"><img src="images/easy-ipo.svg" alt="Easy IPO"></a>
         </div>
 
         <nav class="menu-header">

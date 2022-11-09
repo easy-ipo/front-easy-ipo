@@ -86,7 +86,7 @@
       <iframe width="100%" height="315" src="" id="youtube-video" title="YouTube video player"
               frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;picture-in-picture"
               allowfullscreen></iframe>
-      <div class="btn btn-primary">Iniciar</div>
+      <a href="trilha.php" class="btn btn-primary" title="Iniciar">Iniciar</a>
     </div>
   </div>
 
