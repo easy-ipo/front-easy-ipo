@@ -13,10 +13,13 @@
 
 </head>
 <body>
+<div id="preloader">
+    <img src="images/spinner.svg" alt="Carregando...">
+</div>
 
 <div class="container">
 
-    <?php include "includes/header.php" ?>
+    <div id="header-container"></div>
 
     <section class="content-trail">
         <div class="wrapper">
@@ -50,11 +53,11 @@
 
     <section class="btns-trilha">
         <button class="btn btn-primary">Voltar</button>
-        <a href="conteudo-trilha.php" title="Iniciar Fase" class="btn btn-secondary">Iniciar Fase</a>
+        <a href="conteudo-trilha.html" title="Iniciar Fase" class="btn btn-secondary">Iniciar Fase</a>
         <button class="btn btn-primary">Pular</button>
     </section>
 
-    <?php include "includes/footer.php" ?>
+    <div id="footer-container"></div>
 
     <script src="js/app.js" type="text/javascript"></script>
 

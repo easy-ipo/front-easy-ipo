@@ -19,7 +19,30 @@ h2 {
     margin: 0 0 32px;
 }
 
+#preloader {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+#preloader img {
+    width: 20vw;
+    height: auto;
+    animation: rotation 1s infinite linear;
+}
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .container {
+    display: none;
+
     width: 100%;
     background: no-repeat url('../images/bg1-1280px.png');
     background-size: cover;
