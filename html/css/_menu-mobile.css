@@ -1,0 +1,112 @@
+#menu-mobile {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: -400px;
+    background-color: #FFFFFF;
+    width: 370px;
+    height: 100%;
+    padding: 10px;
+    transition: margin-right 0.3s;
+    box-shadow: -3px 2px 27px rgba(0, 0, 0, 0.48);
+    z-index: 1;
+}
+
+#menu-mobile.open {
+    margin-right: 0;
+}
+
+#menu-mobile-icon {
+    display: flex;
+    cursor: pointer;
+}
+
+.menu-mobile-top {
+    margin: 20px 10px 0;
+    border-bottom: 2px solid #E2E2E2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.user-data {
+    display: flex;
+    flex-direction: row;
+}
+.user-name-score {
+    margin-left: 10px;
+}
+.user-name {
+    font-size: 20px;margin: 0 0 5px;
+}
+.user-avatar {
+    width: 50px;
+    height: 50px;
+}
+.user-score {
+
+}
+.user-score img {
+    width: 20px;
+    height: 20px;
+}
+#menu-close-icon {
+    cursor: pointer;
+}
+.menu-mobile-list {
+    margin: 0 10px;
+}
+.menu-mobile-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.menu-mobile-list ul li a {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    color: #4B4B4B;
+    padding: 14px 0;
+    border-bottom: 2px solid #F1F1F1;
+    display: flex;
+    align-items: center;
+}
+.menu-mobile-list ul li a img {
+    margin-left: 8px;
+    width: 18px;
+    height: 18px;
+}
+
+.menu-mobile-btns {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.menu-mobile-btns .btn {
+    width: 250px;
+    margin: 6px 0;
+}
+
+.menu-mobile-btns .logout {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    text-decoration-line: underline;
+    color: #000000;
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 992px) {
+    #menu-mobile-icon {
+        display: none;
+    }
+}
