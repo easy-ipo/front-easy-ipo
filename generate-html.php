@@ -10,10 +10,13 @@ foreach ($pages as $page) {
 
 	$page_content = file_get_contents(BASE_URL.$page.".php");
 
+    $page_content = str_replace(".php", ".html", $page_content);
+
 	file_put_contents("html/{$page}.html", $page_content);
 
 	echo "HTML de $page gerado com sucesso\n";
 }
+
 
 $assets_dir = ['css','js','images'];
 
@@ -25,6 +28,3 @@ foreach($assets_dir as $dir){
 
 	echo "Diretório $dir copiado com sucesso\n";
 }
-
-
-

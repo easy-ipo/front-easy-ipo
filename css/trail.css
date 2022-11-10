@@ -2,9 +2,16 @@
 @import "_header-footer.css";
 @import "_menu-mobile.css";
 
+/*.container {*/
+/*    background-size: 1200px;*/
+/*    background-position: top center;*/
+/*    background-color: #048501;*/
+/*}*/
+
 .trail-step {
     height: 200px;
     display: flex;
+    align-items: center;
 }
 
 .trail-step:nth-child(odd) {
@@ -42,4 +49,69 @@
 .trail-pin img {
     width: 100%;
     height: auto;
+}
+
+.btns-trilha {
+    background-color: #03AC00;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 14px 0;
+}
+
+.btns-trilha .btn {
+    height: 48px;
+    border-radius: 8px;
+}
+
+.btns-trilha .btn-primary {
+    border-color: #FFFFFF;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .btns-trilha .btn {
+        width: 70px;
+        font-size: 12px;
+    }
+    .btns-trilha .btn-secondary {
+        width: 150px;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .btns-trilha .btn {
+        width: 150px;
+        font-size: 22px;
+    }
+    .btns-trilha .btn-secondary {
+        width: 280px;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .btns-trilha .btn {
+        width: 170px;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .btns-trilha .btn {
+        width: 237px;
+        font-size: 24px;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .btns-trilha .btn {
+        width: 200px;
+    }
+    .btns-trilha .btn-secondary {
+        width: 280px;
+    }
 }

@@ -43,3 +43,21 @@
     width: 100%;
     height: auto;
 }
+
+.btns-trilha {
+    background-color: #03AC00;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 14px 0;
+}
+
+.btns-trilha .btn {
+    font-size: 24px;
+    width: 200px;
+    height: 48px;
+}
+
+.btns-trilha .btn-primary {
+    border-color: #FFFFFF;
+}
