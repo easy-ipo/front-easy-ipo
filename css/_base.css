@@ -11,6 +11,15 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 120%;
+    letter-spacing: 0.02em;
+    color: #4B4B4B;
+}
+
 h2 {
     font-size: 40px;
     font-weight: 700;

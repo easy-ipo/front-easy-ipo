@@ -1,0 +1,74 @@
+@import "_base.css";
+@import "_header-footer.css";
+@import "_menu-mobile.css";
+
+.container {
+    background-image: none;
+}
+
+.form-container {
+    width: 66%;
+    margin: 50px auto;
+}
+
+.form-container form {
+    width: 100%
+}
+
+.form-container h1 {
+    margin-bottom: 60px;
+}
+
+.form-input {
+    width: calc(100% - 42px - 80px - 6px);
+    height: 100px;
+    border: 3px solid #5D5D5D;
+    border-radius: 12px;
+    margin: 16px 0;
+    font-size: 32px;
+    color: #333333;
+    padding: 0 42px 0 80px;
+    background: no-repeat url("../images/bullet.svg") scroll 32px center;
+}
+.form-input::placeholder {
+    color: #5D5D5D
+}
+.form-input:focus,
+.form-input:active{
+    border-color: #048501;
+}
+
+#idade {
+    width: calc(39% - 42px - 80px - 6px);
+}
+#tipo_investidor {
+    width: 59%;
+}
+
+.form-select {
+    margin: 16px 0;
+    padding: 0 32px;
+    height: 106px;
+    width: 100%;
+    border: 3px solid #5D5D5D;
+    border-radius: 12px;
+    font-size: 32px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-checkbox {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #5D5D5D;
+    border-radius: 8px;
+}
+
+.form-inline {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

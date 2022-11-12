@@ -5,13 +5,13 @@ window.addEventListener('load', function () {
             return response.text();
         })
         .then((html) => {
-            document.getElementById("header-container").outerHTML = html;
+            document.getElementById("header-placeholder").outerHTML = html;
 
             // Tirando Preloader
             document.getElementsByClassName("container")[0].style.display = "block";
             document.getElementById("preloader").remove();
 
-            // Exibindo o menu mobile após o carregamento da página
+            // Carregando o menu mobile após o carregamento da página
             loadMenuMobile();
         });
 
@@ -20,7 +20,7 @@ window.addEventListener('load', function () {
             return response.text();
         })
         .then((html) => {
-            document.getElementById("footer-container").outerHTML = html;
+            document.getElementById("footer-placeholder").outerHTML = html;
         });
 })
 
