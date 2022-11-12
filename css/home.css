@@ -111,7 +111,7 @@
         height: 24px;
     }
     .trails-slider {
-        overflow: scroll;
+        overflow-x: scroll;
     }
 }
 
@@ -132,7 +132,7 @@
         height: 42px;
     }
     .trails-slider {
-        overflow: scroll;
+        overflow-x: scroll;
     }
 }
 

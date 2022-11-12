@@ -5,9 +5,7 @@ window.addEventListener('load', function () {
             return response.text();
         })
         .then((html) => {
-            // console.log(html)
-            document.getElementById("header-container").innerHTML = html;
-            document.getElementById("footer-container").innerHTML = html;
+            document.getElementById("header-container").outerHTML = html;
 
             // Tirando Preloader
             document.getElementsByClassName("container")[0].style.display = "block";
@@ -15,6 +13,14 @@ window.addEventListener('load', function () {
 
             // Exibindo o menu mobile após o carregamento da página
             loadMenuMobile();
+        });
+
+    fetch('includes/footer.html')
+        .then((response) => {
+            return response.text();
+        })
+        .then((html) => {
+            document.getElementById("footer-container").outerHTML = html;
         });
 })
 
