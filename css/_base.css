@@ -51,7 +51,6 @@ h2 {
 
 .container {
     display: none;
-    min-height: 100vh;
     width: 100%;
     background: no-repeat url('../images/bg1-1280px.png');
     background-size: cover;

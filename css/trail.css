@@ -33,7 +33,7 @@
     justify-content: start;
     width: 150px;
     height: 140px;
-    background: no-repeat url("../images/user-pin.svg") scroll center center;
+    background: no-repeat url("../images/user-pin.png") scroll center center;
     background-size: contain;
 }
 .trail-pin.user-pin span {
@@ -69,6 +69,41 @@
 }
 
 
+/* MODAL */
+.modal-finished-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 6% 0;
+}
+.modal-finished-content .trail-score {
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
+    display: inline-block;
+    width: fit-content;
+    border-radius: 12px;
+}
+.modal-finished-content .trail-score img {
+    height: auto;
+}
+.modal-finished-content h2 {
+    text-align: center;
+    margin: 5% 0;
+    color: #4B4B4B;
+    text-shadow: none;
+    font-weight: normal;
+}
+.modal-finished-content strong {
+    display: block;
+    font-weight: bold;
+}
+.modal-content .modal-finished-content .btn-primary {
+    width: auto;
+    padding: 4px 20px;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .btns-trilha .btn {
@@ -77,6 +112,16 @@
     }
     .btns-trilha .btn-secondary {
         width: 150px;
+    }
+
+    .modal-finished-content h2 {
+        font-size: 28px;
+    }
+    .modal-content .modal-finished-content .btn-primary {
+        font-size: 12px;
+    }
+    .modal-finished-content .trail-score img {
+        width: 22px;
     }
 }
 
@@ -88,6 +133,15 @@
     }
     .btns-trilha .btn-secondary {
         width: 280px;
+    }
+    .modal-finished-content h2 {
+        font-size: 47px;
+    }
+    .modal-content .modal-finished-content .btn-primary {
+        font-size: 20px;
+    }
+    .modal-finished-content .trail-score img {
+        width: 38px;
     }
 }
 

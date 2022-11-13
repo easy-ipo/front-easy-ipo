@@ -26,6 +26,7 @@
     padding: 20px;
     border: 1px solid #888;
     max-width: 560px;
+    border-radius: 12px;
 }
 
 .modal-content p {
@@ -60,4 +61,12 @@
 
 #youtube-video {
     background-color: #F1F1F1;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .modal-content {
+        width: 86%;
+    }
 }

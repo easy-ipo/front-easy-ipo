@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
     <link rel="stylesheet" href="css/trail.css">
+    <link rel="stylesheet" href="css/_modal.css">
 
 </head>
 <body>
@@ -52,14 +53,37 @@
     </section>
 
     <section class="btns-trilha">
-        <button class="btn btn-primary">Voltar</button>
+        <button class="btn btn-primary" id="previous-step" onclick="previousStep()">Voltar</button>
         <a href="conteudo-trilha.html" title="Iniciar Fase" class="btn btn-secondary">Iniciar Fase</a>
-        <button class="btn btn-primary">Pular</button>
+        <button class="btn btn-primary" id="next-step" onclick="nextStep()">Pular</button>
     </section>
 
     <div id="footer-placeholder"></div>
 
+    <!-- Modal - Parabéns -->
+    <div id="modal-finished" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-finished-content">
+                <div class="trail-score">
+                    <img src="images/star-gold.svg" alt="Score">
+                    <img src="images/star-gold.svg" alt="Score">
+                    <img src="images/star-gold.svg" alt="Score">
+                    <img src="images/star-gold.svg" alt="Score">
+                    <img src="images/star-grey.svg" alt="Score">
+                </div>
+                <h2>
+                    <strong>Parabéns!</strong>
+                    Você conquistou
+                    <strong>4 estrelas</strong>
+                </h2>
+                <a href="#" class="btn btn-primary" title="Continuar para a próxima fase">Continuar para a próxima fase</a>
+            </div>
+        </div>
+    </div>
+
     <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/trail.js" type="text/javascript"></script>
 
 </div>
 
