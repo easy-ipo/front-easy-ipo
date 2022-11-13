@@ -4,6 +4,10 @@
     background-color: #FFFFFF;
 }
 
+footer.site-header-footer {
+
+}
+
 .site-header-footer .wrapper {
     display: flex;
     justify-content: space-between;

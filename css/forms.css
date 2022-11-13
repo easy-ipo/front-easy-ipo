@@ -25,6 +25,7 @@
 }
 
 .form-container .btn-primary {
+    display: inline-block;
     width: 100%;
 }
 
@@ -129,17 +130,21 @@ label {
     justify-content: space-between;
 }
 
-.registered {
-    color: #5D5D5D;
-    margin: 16px 0;
-    text-align: center;
+#forgot-password {
+    text-align: right
 }
-
-.registered a {
+#register {
+    text-align: center
+}
+.form-text {
+    color: #5D5D5D;
+    margin: 2% 0;
+}
+.form-text a {
     text-decoration: underline;
     color: #5D5D5D;
 }
-.registered a:hover {
+.form-text a:hover {
     color: #000000;
 }
 
@@ -156,7 +161,7 @@ label {
     }
     .form-input,
     .btn-light,
-    .registered,
+    .form-text,
     .form-select,
     label,
     .form-container .btn-primary {
@@ -193,7 +198,7 @@ label {
     }
     .form-input,
     .btn-light,
-    .registered,
+    .form-text,
     .form-select,
     label,
     .form-container .btn-primary {
@@ -222,7 +227,7 @@ label {
 @media only screen and (min-width: 768px) {
     .form-input,
     .btn-light,
-    .registered,
+    .form-text,
     .form-select,
     label,
     .form-container .btn-primary {
@@ -257,7 +262,7 @@ label {
     }
     .form-input,
     .btn-light,
-    .registered,
+    .form-text,
     .form-select,
     label {
         font-size: 30px;
@@ -291,7 +296,7 @@ label {
     }
     .form-input,
     .btn-light,
-    .registered,
+    .form-text,
     .form-select,
     label {
         font-size: 32px;

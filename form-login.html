@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Easy IPO - Cadastre-se</title>
+    <title>Easy IPO - Acessar a conta</title>
 
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
@@ -22,34 +22,21 @@
     <div id="header-placeholder"></div>
 
     <section class="form-container form-register">
-        <h1>Cadastre-se</h1>
+        <h1>Acessar a conta</h1>
         <form action="" method="post">
-            <input type="text" class="form-input" id="nome" name="nome" placeholder="Seu nome" required>
             <input type="email" class="form-input" id="email" name="email" placeholder="Seu email" required>
             <input type="password" class="form-input" id="senha" name="senha" placeholder="Sua senha" required>
-            <div class="form-inline">
-                <input type="number" step="1" class="form-input" id="idade" name="idade" placeholder="Sua idade"
-                       required>
-                <select name="tipo_investidor" id="tipo_investidor" class="form-select minimal">
-                    <option value="">Perfil de investidor</option>
-                    <option value="1">Conservador</option>
-                    <option value="2">Moderado</option>
-                    <option value="3">Arrojado</option>
-                </select>
+            <div class="form-text" id="forgot-password">
+                Esqueceu a senha? <a href="form-esqueceu-senha.html" title="Login">Clique Aqui</a>
             </div>
-            <label class="checkbox-group">
-                <input type="checkbox" id="aceite">
-                <span class="form-checkbox"></span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et quam quis nulla congue malesuada.
-            </label>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Entrar</button>
             <div class="form-inline">
                 <button type="submit" class="btn btn-light">Google</button>
                 <button type="submit" class="btn btn-light">Facebook</button>
             </div>
         </form>
         <div class="form-text" id="register">
-            Já possui uma conta? <a href="form-login.html" title="Login">Acesse Aqui</a>
+            Não tem uma conta? <a href="form-cadastro.html" title="Login">Criar Aqui</a>
         </div>
     </section>
 
