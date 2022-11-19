@@ -2,12 +2,6 @@
 @import "_header-footer.css";
 @import "_menu-mobile.css";
 
-/*.container {*/
-/*    background-size: 1200px;*/
-/*    background-position: top center;*/
-/*    background-color: #048501;*/
-/*}*/
-
 .trail-step {
     height: 200px;
     display: flex;
