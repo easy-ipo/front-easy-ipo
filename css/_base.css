@@ -34,11 +34,17 @@ h2 {
     width: 100vw;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-#preloader img {
-    width: 20vw;
+#preloader img.spinner {
+    width: 12vw;
     height: auto;
     animation: rotation 1s infinite linear;
+}
+#preloader img.logo {
+    width: 30vw;
+    height: auto;
+    margin: 3vw 0;
 }
 @keyframes rotation {
     from {
