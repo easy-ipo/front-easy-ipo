@@ -20,14 +20,14 @@
     height: 130px;
     display: flex;
     justify-content: center;
-    background: no-repeat url("../images/pin.svg") scroll center center;
+    background: no-repeat url("../../../public/images/pin.svg") scroll center center;
     background-size: contain;
 }
 .trail-pin.user-pin {
     justify-content: start;
     width: 150px;
     height: 140px;
-    background: no-repeat url("../images/user-pin.png") scroll center center;
+    background: no-repeat url("../../../public/images/user-pin.png") scroll center center;
     background-size: contain;
 }
 .trail-pin.user-pin span {

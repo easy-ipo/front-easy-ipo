@@ -30,7 +30,7 @@ h2 {
 
 .container {
     width: 100%;
-    background: no-repeat url('../images/bg1-1280px.png');
+    background: transparent url("http://localhost:3000/images/bg1-1280px.png") no-repeat top center;
     background-size: cover;
 }
 

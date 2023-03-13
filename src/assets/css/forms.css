@@ -46,7 +46,7 @@
     margin: 1.5% 0;
     color: #333333;
     padding: 0 2% 0 10%;
-    background: no-repeat url("../images/bullet.svg") scroll 4% center;
+    background: no-repeat url("../../../public/images/bullet.svg") scroll 4% center;
     background-size: 4%;
 }
 .form-input::placeholder {
