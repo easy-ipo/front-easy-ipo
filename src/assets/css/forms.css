@@ -57,13 +57,21 @@
     border-color: #048501;
 }
 
-#idade {
+#idade,
+#numero,
+#uf {
     width: calc(26% - 6px);
     background-size: 11%;
     background-position-x: 10%;
 }
 #tipo_investidor {
     width: calc(59%);
+}
+#complemento,
+#cidade {
+    width: calc(47% - 6px);
+    background-size: 7%;
+    background-position-x: 6%;
 }
 
 .form-select {

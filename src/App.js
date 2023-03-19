@@ -2,7 +2,8 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Home from './Components/Home';
-import Cadastro from './Components/Cadastro';
+import CadastroUsuario from './Components/CadastroUsuario';
+import CadastroEndereco from './Components/CadastroEndereco';
 import Login from './Components/Login';
 import Header from './Components/Partials/Header';
 import Footer from './Components/Partials/Footer';
@@ -20,7 +21,8 @@ export default function App() {
 
                 <Routes>
                     <Route exact path="/" element={<Home/>}/>
-                    <Route exact path="/cadastre-se" element={<Cadastro/>}/>
+                    <Route exact path="/cadastre-se" element={<CadastroUsuario/>}/>
+                    <Route exact path="/cadastro-endereco" element={<CadastroEndereco/>}/>
                     <Route exact path="/login" element={<Login/>}/>
                     <Route exact path="/esqueceu-a-senha" element={<EsqueceuSenha/>}/>
                     <Route exact path="/trilha" element={<Trilha/>}/>

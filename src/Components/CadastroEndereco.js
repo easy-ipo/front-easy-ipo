@@ -9,27 +9,32 @@ export default function Cadastro() {
 
     return (
         <section className="form-container form-register">
-            <h1>Cadastre-se</h1>
+            <h1>Informe seu endereço</h1>
             <form action="" method="post">
-                <input type="text" className="form-input" id="nome" name="nome" placeholder="Seu nome" required />
-                <input type="email" className="form-input" id="email" name="email" placeholder="Seu email" required />
-                <input type="password" className="form-input" id="senha" name="senha" placeholder="Sua senha" required />
+                <input type="text" className="form-input" id="cep" name="cep" placeholder="CEP" maxLength="8" required />
+
+                <input type="text" className="form-input" id="logradouro" name="logradouro" placeholder="Logradouro" required />
+                
                 <div className="form-inline">
-                    <input type="number" step="1" className="form-input" id="idade" name="idade" placeholder="Sua idade"
-                        required />
-                    <select name="tipo_investidor" id="tipo_investidor" className="form-select minimal">
-                        <option value="">Perfil de investidor</option>
-                        <option value="1">Conservador</option>
-                        <option value="2">Moderado</option>
-                        <option value="3">Arrojado</option>
-                    </select>
+                    <input type="number" step="1" className="form-input" id="numero" name="numero" placeholder="Número" />
+                    <input type="text" step="1" className="form-input" id="complemento" name="complemento" placeholder="Complemento"/>
                 </div>
+                
+                <input type="text" className="form-input" id="bairro" name="bairro" placeholder="Bairro" required />
+                
+                <div className="form-inline">
+                    <input type="text" className="form-input" id="uf" name="uf" placeholder="UF" maxLength="2" />
+                    <input type="text" className="form-input" id="cidade" name="cidade" placeholder="Cidade"/>
+                </div>
+
                 <label className="checkbox-group">
                     <input type="checkbox" id="aceite" />
                     <span className="form-checkbox"></span>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et quam quis nulla congue malesuada.
                 </label>
-                <button type="submit" className="btn btn-primary">Cadastrar</button>
+                
+                <button type="submit" className="btn btn-primary">Finalizar Cadastro</button>
+                
                 <div className="form-inline">
                     <button type="submit" className="btn btn-light">Google</button>
                     <button type="submit" className="btn btn-light">Facebook</button>
