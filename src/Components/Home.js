@@ -9,7 +9,7 @@ export default function Home() {
 
     const [modalOpened, setModalOpened] = useState(false);
 
-    const youtube_video_url = 'https://www.youtube.com/embed/nhsu9ZbnwVY';
+    const youtube_video_url = 'https://www.youtube.com/embed/5TaIqCeKZ_I';
 
     function openModal() {
         setModalOpened(true);
