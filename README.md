@@ -1,4 +1,4 @@
-# Challenge Sprint 2
+# Challenge Sprint 3
 
 ## Responsive Web Development
 
