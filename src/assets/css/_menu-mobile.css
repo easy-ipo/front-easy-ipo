@@ -1,7 +1,6 @@
 #menu-mobile {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
     position: fixed;
     top: 0;
     right: 0;
@@ -88,7 +87,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 1.5rem;
 }
 
 .menu-mobile-btns .btn {

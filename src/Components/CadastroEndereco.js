@@ -10,6 +10,7 @@ export default function Cadastro() {
     return (
         <section className="form-container form-register">
             <h1>Informe seu endereço</h1>
+            <p className="form-text">Etapa 2 de 2</p>
             <form action="" method="post">
                 <input type="text" className="form-input" id="cep" name="cep" placeholder="CEP" maxLength="8" required />
 

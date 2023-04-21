@@ -7,11 +7,10 @@ export default function Cadastro() {
         import('./../assets/css/forms.css');
     }, []);
 
-
-
     return (
         <section className="form-container form-register">
             <h1>Cadastre-se</h1>
+            <p className="form-text">Etapa 1 de 2</p>
             <form action="" method="post">
                 <input type="text" className="form-input" id="nome" name="nome" placeholder="Seu nome" required/>
                 <input type="email" className="form-input" id="email" name="email" placeholder="Seu email" required/>
