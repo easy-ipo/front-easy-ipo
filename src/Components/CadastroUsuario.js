@@ -19,7 +19,7 @@ export default function Cadastro() {
             .required('O password é obrigatório'),
         idade: yup.number().integer().required('A idade é obrigatória'),
         tipo_investidor: yup.string().required('O tipo investidor é obrigatório'),
-        cep: yup.string().required('O cep é obrigatório'),
+        cep: yup.string().min(8).max(9).required('O cep é obrigatório'),
         logradouro: yup.string().required('O logradouro é obrigatório'),
         numero: yup.number().integer().required('O numero é obrigatório'),
         complemento: yup.string(),
@@ -33,15 +33,28 @@ export default function Cadastro() {
     const [listaClientes, setListaClientes] = useState()
 
     function inserirCliente(cliente) {
-        // setListaClientes([...listaClientes, cliente])
-        console.log(cliente);
-        console.log('handleSubmit fired');
-        return true;
+        setListaClientes([...listaClientes, cliente])
+        // console.log(cliente);
+        // console.log('handleSubmit fired');
+        // return true;
+    }
+
+    function buscarCep(e) {
+        const cep = e.target.value.replace(/\D/g, '');
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(res => res.json())
+            .then(data => {
+                setValue('logradouro', data.logradouro)
+                setValue('bairro', data.bairro)
+                setValue('cidade', data.localidade)
+                setValue('uf', data.uf)
+                setFocus('numero')
+            })
     }
 
     return (
         <section className="form-container form-register">
-            <form onSubmit={handleSubmit((data) => inserirCliente(data))}>
+            <form onSubmit={handleSubmit(inserirCliente)}>
                 <input type="text" className="form-input" id="nome" name="nome" placeholder="Seu nome" {...register('nome')} />
                 {errors.nome ? <span className="error">{errors.nome.message}</span> : null}
 
@@ -65,7 +78,8 @@ export default function Cadastro() {
                 {errors.tipo_investidor ? <span className="error">{errors.tipo_investidor.message}</span> : null}
 
                 <h2>Informe seu endereço</h2>
-                <input type="text" className="form-input" id="cep" name="cep" placeholder="CEP" maxLength="8" {...register('cep')} />
+                <input type="text" className="form-input" id="cep" name="cep" placeholder="CEP" maxLength="9"
+                       {...register('cep')} onBlur={buscarCep} />
                 {errors.cep ? <span className="error">{errors.cep.message}</span> : null}
 
                 <input type="text" className="form-input" id="logradouro" name="logradouro" placeholder="Logradouro" {...register('logradouro')} />
