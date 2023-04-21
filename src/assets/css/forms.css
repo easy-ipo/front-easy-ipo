@@ -6,6 +6,17 @@
     background-image: none;
 }
 
+.error {
+    color: red;
+    display: block;
+}
+
+h2 {
+    color: #4B4B4B;
+    text-shadow: none;
+    margin: 40px 0 0;
+}
+
 .form-container {
     margin: 5% auto;
 }
