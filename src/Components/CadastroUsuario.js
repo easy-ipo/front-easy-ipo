@@ -30,11 +30,11 @@ export default function Cadastro() {
 
     const { register, handleSubmit, formState: { errors }, setValue, setFocus } = useForm({ resolver: yupResolver(schema) })
 
-    const [listaClientes, setListaClientes] = useState()
+    // const [listaClientes, setListaClientes] = useState()
 
     function inserirCliente(cliente) {
-        setListaClientes([...listaClientes, cliente])
-        // console.log(cliente);
+        // setListaClientes([...listaClientes, cliente])
+        console.log(cliente);
         // console.log('handleSubmit fired');
         // return true;
     }
@@ -66,7 +66,7 @@ export default function Cadastro() {
 
                 <div className="form-inline">
                     <input type="number" step="1" className="form-input" id="idade" name="idade" placeholder="Sua idade"
-                           {...register('number')} />
+                           {...register('idade')} />
                     <select name="tipo_investidor" id="tipo_investidor" className="form-select minimal" {...register('tipo_investidor')}>
                         <option value="">Perfil de investidor</option>
                         <option value="1">Conservador</option>
