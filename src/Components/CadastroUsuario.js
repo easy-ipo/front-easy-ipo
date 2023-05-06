@@ -35,8 +35,6 @@ export default function Cadastro() {
     function inserirCliente(cliente) {
         // setListaClientes([...listaClientes, cliente])
         console.log(cliente);
-        // console.log('handleSubmit fired');
-        // return true;
     }
 
     function buscarCep(e) {

@@ -2,6 +2,7 @@
   "name": "rwd",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://c9897dd6-c9b6-45b8-9363-9ae49acc99e4.mock.pstmn.io",
   "dependencies": {
     "@hookform/resolvers": "^3.1.0",
     "@testing-library/jest-dom": "^5.14.1",

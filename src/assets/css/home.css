@@ -164,7 +164,7 @@
         justify-content: space-between;
     }
     .trail-card {
-        min-width: auto;
+        min-width: 215px;
         margin-right: 22px;
     }
     .trail-card:last-child {

@@ -3,8 +3,19 @@ import {Link} from "react-router-dom";
 
 export default function Home() {
 
+    const [trilhas, setTrilhas] = useState([]);
+    const [trilhaPrincipal, setTrilhaPrincipal] = useState({});
+
     useEffect(() => {
         import('./../assets/css/home.css');
+
+        fetch('/trilhas')
+            .then(resp => resp.json())
+            .then(resp => setTrilhas(resp));
+
+        fetch('/trilha/1')
+            .then(resp => resp.json())
+            .then(resp => setTrilhaPrincipal(resp))
     }, []);
 
     const [modalOpened, setModalOpened] = useState(false);
@@ -27,52 +38,31 @@ export default function Home() {
                     <section className="main-title">
                         <h2>Aprenda a investir de<br />
                             uma forma diferente.</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et quam quis nulla congue
-                            malesuada. Duis bibendum nec ex et porttitor.</p>
+                        <p>Com a EasyIPO, você pode aprender a investir com facilidade e confiança, com uma abordagem
+                            amigável e acessível. Então, se você quer começar a investir e aproveitar melhor o seu
+                            dinheiro, venha conhecer a EasyIPO, a plataforma que vai te ajudar a se tornar um investidor
+                            de sucesso!</p>
                     </section>
 
                     <section className="main-trail">
                         <img src="/images/IPO.png" alt="IPOs" />
-                        <p>Lorem ipsum dolor sit amet, consectetur elit ctetur adipisc elit. Praesent et quam
-                            quis nulla congue malesuada. Praesent et quam quis nulla congue malesuada.</p>
+                        <p>{ trilhaPrincipal.DESCRICAO || '' }</p>
                         <div className="btn btn-primary" onClick={openModal}>Iniciar Trilha IPO</div>
                     </section>
 
                     <section className="trails-slider">
                         <h2>Mais Trilhas</h2>
                         <div className="trails-list">
-                            <div className="trail-card">
-                                <div className="trail-thumb">
-                                    <img src="/images/thumb-trilha-1.png" alt="Trilha 1" />
-                                    <h3>Prospectos</h3>
+                            { trilhas.map((trilha) => (
+                                <div className="trail-card" key={trilha.CODIGO_TRILHA}>
+                                    <div className="trail-thumb">
+                                        <img src={ 'images/' + trilha.IMAGEM } alt="{ trilha.TITULO }" />
+                                        <h3>{ trilha.TITULO }</h3>
+                                    </div>
+                                    <p>{ trilha.TITULO }</p>
+                                    <Link to={'trilha/' + trilha.CODIGO_TRILHA} className="btn btn-primary">Iniciar</Link>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
-                                <Link to="#" className="btn btn-primary">Iniciar</Link>
-                            </div>
-                            <div className="trail-card">
-                                <div className="trail-thumb">
-                                    <img src="/images/thumb-trilha-2.png" alt="Trilha 2" />
-                                    <h3>Ações</h3>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
-                                <Link to="#" className="btn btn-primary">Iniciar</Link>
-                            </div>
-                            <div className="trail-card">
-                                <div className="trail-thumb">
-                                    <img src="/images/thumb-trilha-3.png" alt="Trilha 3" />
-                                    <h3>Fundos Imobiliários</h3>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
-                                <Link to="#" className="btn btn-primary">Iniciar</Link>
-                            </div>
-                            <div className="trail-card">
-                                <div className="trail-thumb">
-                                    <img src="/images/thumb-trilha-4.png" alt="Trilha 4" />
-                                    <h3>BDRs</h3>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
-                                <Link to="#" className="btn btn-primary">Iniciar</Link>
-                            </div>
+                            ))}
                         </div>
                     </section>
 
