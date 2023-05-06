@@ -1,24 +1,31 @@
 import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
 import ModalConquista from "./Partials/ModalConquista";
 
-export default function Trilha() {
+export default function Trilha({match}) {
+
+    let { codigo_trilha } = useParams();
+
+    const [fasesTrilha, setFasesTrilha] = useState([]);
+    const [modalOpened, setModalOpened] = useState(false);
+    const [fase, setFase] = useState(1);
 
     useEffect(() => {
         import('./../assets/css/trail.css');
         import('./../assets/css/_modal.css');
-    }, []);
 
-    const [modalOpened, setModalOpened] = useState(false);
-    const [fase, setFase] = useState(1);  
-    const fases_trilha = [1, 2, 3,4];
+        fetch('/fases_trilha/' + codigo_trilha)
+            .then(resp => resp.json())
+            .then(resp => setFasesTrilha(resp));
+    }, []);
 
     function classeFase(i) {
         return fase === i ? 'trail-pin user-pin' : 'trail-pin';
     }
 
     function nextStep() {
-        if (fase < fases_trilha.length) {
+        if (fase < fasesTrilha.length) {
             setFase(fase + 1);
         } else {
             setModalOpened(true);
@@ -36,10 +43,10 @@ export default function Trilha() {
             <section className="content-trail">
                 <div className="wrapper">
                     {
-                        fases_trilha.reverse().map((i) => (
-                            <div className="trail-step" key={ i }>
-                                <div className={ classeFase(i) }>
-                                    <span>{ i }</span>
+                        fasesTrilha.map((faseTrilha) => (
+                            <div className="trail-step" key={ faseTrilha.NUMERO_FASE }>
+                                <div className={ classeFase(faseTrilha.NUMERO_FASE) }>
+                                    <span>{ faseTrilha.NUMERO_FASE }</span>
                                 </div>
                             </div>
                         ))

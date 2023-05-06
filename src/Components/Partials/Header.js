@@ -19,20 +19,20 @@ export default function Header() {
                 <div className="menu-mobile-content">
                     <div className="menu-mobile-top">
                         <div className="user-data">
-                            <img src="images/avatar.png" alt="Avatar" className="user-avatar" />
+                            <img src="/images/avatar.png" alt="Avatar" className="user-avatar" />
                             <div className="user-name-score">
                                 <h4 className="user-name">Fulano da Silva</h4>
                                 <div className="user-score">
-                                    <img src="images/star-gold.svg" alt="Score" />
-                                    <img src="images/star-gold.svg" alt="Score" />
-                                    <img src="images/star-gold.svg" alt="Score" />
-                                    <img src="images/star-gold.svg" alt="Score" />
-                                    <img src="images/star-grey.svg" alt="Score" />
+                                    <img src="/images/star-gold.svg" alt="Score" />
+                                    <img src="/images/star-gold.svg" alt="Score" />
+                                    <img src="/images/star-gold.svg" alt="Score" />
+                                    <img src="/images/star-gold.svg" alt="Score" />
+                                    <img src="/images/star-grey.svg" alt="Score" />
                                 </div>
                             </div>
                         </div>
                         <div id="menu-close-icon">
-                            <img src="images/caret.svg" alt="Fechar" onClick={closeMenu} />
+                            <img src="/images/caret.svg" alt="Fechar" onClick={closeMenu} />
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Header() {
                 <div className="wrapper">
 
                     <div className="logo">
-                        <Link to="/" title="Easy IPO"><img src="images/easy-ipo.svg" alt="Easy IPO" /></Link>
+                        <Link to="/" title="Easy IPO"><img src="/images/easy-ipo.svg" alt="Easy IPO" /></Link>
                     </div>
 
                     <div className="btns-header">
@@ -56,7 +56,7 @@ export default function Header() {
                     </div>
 
                     <div id="menu-mobile-icon">
-                        <img src="images/menu-mobile-icon.svg" alt="Menu" onClick={openMenu} />
+                        <img src="/images/menu-mobile-icon.svg" alt="Menu" onClick={openMenu} />
                     </div>
 
                 </div>

@@ -25,7 +25,7 @@ export default function App() {
                     <Route exact path="/cadastro-endereco" element={<CadastroEndereco/>}/>
                     <Route exact path="/login" element={<Login/>}/>
                     <Route exact path="/esqueceu-a-senha" element={<EsqueceuSenha/>}/>
-                    <Route exact path="/trilha" element={<Trilha/>}/>
+                    <Route exact path="/trilha/:codigo_trilha" element={<Trilha/>}/>
                     <Route exact path="/conteudo-trilha" element={<ConteudoTrilha/>}/>
                 </Routes>
 

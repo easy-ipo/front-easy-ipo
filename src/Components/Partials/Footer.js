@@ -7,7 +7,7 @@ export default function Footer() {
             <div className="wrapper">
 
                 <div className="logo">
-                    <Link to="/" title="Easy IPO"><img src="images/easy-ipo.svg" alt="Easy IPO" /></Link>
+                    <Link to="/" title="Easy IPO"><img src="/images/easy-ipo.svg" alt="Easy IPO" /></Link>
                 </div>
 
                 <div className="btns-header">

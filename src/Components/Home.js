@@ -76,7 +76,7 @@ export default function Home() {
             >
                 <div className="modal-content">
                     <span className="close" onClick={closeModal}>&times;</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>{trilhaPrincipal.TITULO}</p>
                     <iframe
                         width="100%"
                         height="315"
@@ -87,7 +87,7 @@ export default function Home() {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;picture-in-picture"
                         allowFullScreen
                     ></iframe>
-                    <Link to="trilha" className="btn btn-primary" title="Iniciar">Iniciar</Link>
+                    <Link to={'/trilha/' + trilhaPrincipal.CODIGO_TRILHA} className="btn btn-primary" title="Iniciar">Iniciar</Link>
                 </div>
             </div>
 
