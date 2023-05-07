@@ -45,7 +45,7 @@ export default function ConteudoTrilha() {
                     }
 
                     <button className="btn btn-primary btn-quizz" id="btn-quizz-save">Responder</button>
-                    <Link to={'trilha' + campoFase('CODIGO_TRILHA')} title="Voltar" className="btn btn-secondary btn-quizz"
+                    <Link to={'/trilha/' + campoFase('CODIGO_TRILHA')} title="Voltar" className="btn btn-secondary btn-quizz"
                           id="btn-quizz-back">Voltar</Link>
                 </div>
             </div>
