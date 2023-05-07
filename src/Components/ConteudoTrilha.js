@@ -33,8 +33,7 @@ export default function ConteudoTrilha() {
                 <div className="container-quizz">
                     <h2 className="quizz-title">Quizz</h2>
 
-                    <h3><span>01.</span> {campoFase('PERGUNTA')}</h3>
-
+                    <h3>{campoFase('PERGUNTA')}</h3>
                     {
                         faseTrilha.map((resposta, i) => (
                             <label htmlFor={'resposta_' + i}>
