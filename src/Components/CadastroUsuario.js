@@ -7,7 +7,13 @@ import {Link} from "react-router-dom";
 
 export default function Cadastro() {
 
+    const [perfisUsuario, setPerfisUsuario] = useState([]);
+
     useEffect(() => {
+        fetch('/perfil_usuario')
+            .then(resp => resp.json())
+            .then(resp => setPerfisUsuario(resp));
+
         import('./../assets/css/forms.css');
     }, []);
 
@@ -67,9 +73,11 @@ export default function Cadastro() {
                            {...register('idade')} />
                     <select name="tipo_investidor" id="tipo_investidor" className="form-select minimal" {...register('tipo_investidor')}>
                         <option value="">Perfil de investidor</option>
-                        <option value="1">Conservador</option>
-                        <option value="2">Moderado</option>
-                        <option value="3">Arrojado</option>
+                        {
+                            perfisUsuario.map(perfil =>
+                                <option key={perfil.CODIGO_PERFIL} value={perfil.CODIGO_PERFIL}>{perfil.TIPO}</option>
+                            )
+                        }
                     </select>
                 </div>
                 {errors.idade ? <span className="error">{errors.idade.message}</span> : null}
