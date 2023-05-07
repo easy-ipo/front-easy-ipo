@@ -20,6 +20,14 @@ export default function Trilha({match}) {
             .then(resp => setFasesTrilha(resp));
     }, []);
 
+    function codigoFaseTrilhaAtual(){
+        if(fasesTrilha.length > 0) {
+            const trilha_atual = fasesTrilha.filter(t => Number(t.NUMERO_FASE) === fase);
+            return trilha_atual.length > 0 ? trilha_atual[0].CODIGO_FASE_TRILHA : null;
+        }
+        return null;
+    }
+
     function classeFase(i) {
         return fase === i ? 'trail-pin user-pin' : 'trail-pin';
     }
@@ -56,7 +64,7 @@ export default function Trilha({match}) {
 
             <section className="btns-trilha">
                 <button className="btn btn-primary" id="previous-step" onClick={ previousStep }>Voltar</button>
-                <Link to="/conteudo-trilha" title="Iniciar Fase" className="btn btn-secondary">Iniciar Fase</Link>
+                <Link to={'/conteudo-trilha/' + codigoFaseTrilhaAtual()} title="Iniciar Fase" className="btn btn-secondary">Iniciar Fase</Link>
                 <button className="btn btn-primary" id="next-step" onClick={ nextStep }>Pular</button>
             </section>
 
