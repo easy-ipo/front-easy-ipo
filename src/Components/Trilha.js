@@ -15,15 +15,15 @@ export default function Trilha({match}) {
         import('./../assets/css/trail.css');
         import('./../assets/css/_modal.css');
 
-        fetch('/fases_trilha/' + codigo_trilha)
+        fetch('/fases_trilhas/trilha/' + codigo_trilha)
             .then(resp => resp.json())
             .then(resp => setFasesTrilha(resp));
     }, []);
 
     function codigoFaseTrilhaAtual(){
         if(fasesTrilha.length > 0) {
-            const trilha_atual = fasesTrilha.filter(t => Number(t.NUMERO_FASE) === fase);
-            return trilha_atual.length > 0 ? trilha_atual[0].CODIGO_FASE_TRILHA : null;
+            const trilha_atual = fasesTrilha.filter(t => Number(t.numero_fase) === fase);
+            return trilha_atual.length > 0 ? trilha_atual[0].codigo_fase_trilha : null;
         }
         return null;
     }
@@ -52,12 +52,12 @@ export default function Trilha({match}) {
                 <div className="wrapper">
                     {
                         fasesTrilha.map((faseTrilha) => (
-                            <div className="trail-step" key={ faseTrilha.NUMERO_FASE }>
-                                <div className={ classeFase(faseTrilha.NUMERO_FASE) }>
-                                    <span>{ faseTrilha.NUMERO_FASE }</span>
+                            <div className="trail-step" key={ faseTrilha.numero_fase }>
+                                <div className={ classeFase(faseTrilha.numero_fase) }>
+                                    <span>{ faseTrilha.numero_fase }</span>
                                 </div>
                             </div>
-                        ))
+                        )) || <p>Carregando...</p>
                     }
                 </div>
             </section>

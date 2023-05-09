@@ -77,7 +77,7 @@ export default function Cadastro() {
                             perfisUsuario.map(perfil =>
                                 <option key={perfil.CODIGO_PERFIL} value={perfil.CODIGO_PERFIL}>{perfil.TIPO}</option>
                             )
-                        }
+                        }   
                     </select>
                 </div>
                 {errors.idade ? <span className="error">{errors.idade.message}</span> : null}

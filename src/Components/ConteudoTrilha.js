@@ -4,12 +4,15 @@ import {Link, useParams} from "react-router-dom";
 export default function ConteudoTrilha() {
 
     let {codigo_fase_trilha} = useParams();
+
+    const [trilha, setTrilha] = useState([]);
     const [faseTrilha, setFaseTrilha] = useState([]);
+    const [respostas, setRepostas] = useState([]);
 
     useEffect(() => {
         import('./../assets/css/trail-content.css');
 
-        fetch('/respostas/' + codigo_fase_trilha)
+        fetch('/fases_trilhas/' + codigo_fase_trilha)
             .then(resp => resp.json())
             .then(resp => setFaseTrilha(resp));
     }, []);

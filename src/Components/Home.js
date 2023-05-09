@@ -13,7 +13,7 @@ export default function Home() {
             .then(resp => resp.json())
             .then(resp => setTrilhas(resp));
 
-        fetch('/trilha/1')
+        fetch('/trilhas/1')
             .then(resp => resp.json())
             .then(resp => setTrilhaPrincipal(resp))
     }, []);
@@ -46,21 +46,21 @@ export default function Home() {
 
                     <section className="main-trail">
                         <img src="/images/IPO.png" alt="IPOs" />
-                        <p>{ trilhaPrincipal.DESCRICAO || '' }</p>
-                        <div className="btn btn-primary" onClick={openModal}>Iniciar Trilha IPO</div>
+                        <p><strong>{ trilhaPrincipal.titulo || '' }</strong> - { trilhaPrincipal.descricao || '' }</p>
+                        <div className="btn btn-primary" onClick={openModal}>Iniciar Trilha</div>
                     </section>
 
                     <section className="trails-slider">
                         <h2>Mais Trilhas</h2>
                         <div className="trails-list">
                             { trilhas.map((trilha) => (
-                                <div className="trail-card" key={trilha.CODIGO_TRILHA}>
+                                <div className="trail-card" key={trilha.codigo_trilha}>
                                     <div className="trail-thumb">
-                                        <img src={ 'images/' + trilha.IMAGEM } alt="{ trilha.TITULO }" />
-                                        <h3>{ trilha.TITULO }</h3>
+                                        <img src={ 'images/' + trilha.imagem } alt="{ trilha.titulo }" />
+                                        <h3>{ trilha.titulo }</h3>
                                     </div>
-                                    <p>{ trilha.TITULO }</p>
-                                    <Link to={'trilha/' + trilha.CODIGO_TRILHA} className="btn btn-primary">Iniciar</Link>
+                                    <p>{ trilha.titulo }</p>
+                                    <Link to={'trilha/' + trilha.codigo_trilha} className="btn btn-primary">Iniciar</Link>
                                 </div>
                             ))}
                         </div>
@@ -76,7 +76,7 @@ export default function Home() {
             >
                 <div className="modal-content">
                     <span className="close" onClick={closeModal}>&times;</span>
-                    <p>{trilhaPrincipal.TITULO}</p>
+                    <p>{trilhaPrincipal.titulo}</p>
                     <iframe
                         width="100%"
                         height="315"
@@ -87,7 +87,7 @@ export default function Home() {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;picture-in-picture"
                         allowFullScreen
                     ></iframe>
-                    <Link to={'/trilha/' + trilhaPrincipal.CODIGO_TRILHA} className="btn btn-primary" title="Iniciar">Iniciar</Link>
+                    <Link to={'/trilha/' + trilhaPrincipal.codigo_trilha} className="btn btn-primary" title="Iniciar">Iniciar</Link>
                 </div>
             </div>
 
