@@ -46,7 +46,11 @@ export default function Home() {
 
                     <section className="main-trail">
                         <img src="/images/IPO.png" alt="IPOs" />
-                        <p><strong>{ trilhaPrincipal.titulo || '' }</strong> - { trilhaPrincipal.descricao || '' }</p>
+                            {
+                                trilhaPrincipal.titulo
+                                    ? <p><strong>{ trilhaPrincipal.titulo }</strong> - { trilhaPrincipal.descricao }</p>
+                                    : <p>Carregando...</p>
+                            }
                         <div className="btn btn-primary" onClick={openModal}>Iniciar Trilha</div>
                     </section>
 

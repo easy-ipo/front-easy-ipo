@@ -4,28 +4,33 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 export default function Cadastro() {
 
     const [perfisUsuario, setPerfisUsuario] = useState([]);
+    const [modalOpened, setModalOpened] = useState(false);
 
     useEffect(() => {
-        fetch('/perfil_usuario')
+        fetch('/perfil_investidor')
             .then(resp => resp.json())
             .then(resp => setPerfisUsuario(resp));
 
         import('./../assets/css/forms.css');
+        import('./../assets/css/_modal.css');
     }, []);
 
     const schema = yup.object({
 
         nome: yup.string().required('O nome é obrigatório'),
         email: yup.string().email().required('O email é obrigatório'),
-        password: yup.string().min(8, 'A senha deve ter no mínimo 8 caracteres')
+        senha: yup.string().min(8, 'A senha deve ter no mínimo 8 caracteres')
             .required('O password é obrigatório'),
-        idade: yup.number().integer().required('A idade é obrigatória'),
+        idade: yup.number().integer("A idade deve ser um número").required('A idade é obrigatória'),
+        instituicao_ensino: yup.string(),
         tipo_investidor: yup.string().required('O tipo investidor é obrigatório'),
-        cep: yup.string().min(8).max(9).required('O cep é obrigatório'),
+        cep: yup.string().min(8, "O cep deve ter no mínimo 8 caracteres").max(9, "O cep deve ter no máximo 9 caracteres")
+            .required('O cep é obrigatório'),
         logradouro: yup.string().required('O logradouro é obrigatório'),
         numero: yup.number().integer().required('O numero é obrigatório'),
         complemento: yup.string(),
@@ -36,11 +41,35 @@ export default function Cadastro() {
 
     const { register, handleSubmit, formState: { errors }, setValue, setFocus } = useForm({ resolver: yupResolver(schema) })
 
-    // const [listaClientes, setListaClientes] = useState()
+    function cadastrarUsuario(usuario) {
+        axios.post('usuarios', {
+            nome: usuario.nome,
+            email: usuario.email,
+            senha: usuario.senha,
+            idade: usuario.idade,
+            instituicao_ensino: usuario.instituicao_ensino,
+            codigo_perfil: usuario.tipo_investidor,
+        })
+            .then(resp => {
+                console.log(resp);
+                cadastrarEndereco(usuario);
+            })
+            .then(resp => {
+                setModalOpened(true);
+            });
+    }
 
-    function inserirCliente(cliente) {
-        // setListaClientes([...listaClientes, cliente])
-        console.log(cliente);
+    function cadastrarEndereco(endereco){
+        axios.post('usuarios_endereco/ultimo_usuario', {
+            cep: endereco.cep,
+            logradouro: endereco.logradouro,
+            numero: endereco.numero,
+            complemento: endereco.complemento,
+            bairro: endereco.bairro,
+            uf: endereco.uf,
+            cidade: endereco.cidade,
+        })
+            .then(resp => console.log(resp));
     }
 
     function buscarCep(e) {
@@ -58,15 +87,15 @@ export default function Cadastro() {
 
     return (
         <section className="form-container form-register">
-            <form onSubmit={handleSubmit(inserirCliente)}>
+            <form onSubmit={handleSubmit(cadastrarUsuario)}>
                 <input type="text" className="form-input" id="nome" name="nome" placeholder="Seu nome" {...register('nome')} />
                 {errors.nome ? <span className="error">{errors.nome.message}</span> : null}
 
                 <input type="email" className="form-input" id="email" name="email" placeholder="Seu email" {...register('email')} />
                 {errors.email ? <span className="error">{errors.email.message}</span> : null}
 
-                <input type="password" className="form-input" id="senha" name="senha" placeholder="Sua senha" {...register('password')}/>
-                {errors.password ? <span className="error">{errors.password.message}</span> : null}
+                <input type="password" className="form-input" id="senha" name="senha" placeholder="Sua senha" {...register('senha')}/>
+                {errors.senha ? <span className="error">{errors.senha.message}</span> : null}
 
                 <div className="form-inline">
                     <input type="number" step="1" className="form-input" id="idade" name="idade" placeholder="Sua idade"
@@ -75,13 +104,16 @@ export default function Cadastro() {
                         <option value="">Perfil de investidor</option>
                         {
                             perfisUsuario.map(perfil =>
-                                <option key={perfil.CODIGO_PERFIL} value={perfil.CODIGO_PERFIL}>{perfil.TIPO}</option>
+                                <option key={perfil.codigo_perfil} value={perfil.codigo_perfil}>{perfil.tipo}</option>
                             )
                         }   
                     </select>
                 </div>
                 {errors.idade ? <span className="error">{errors.idade.message}</span> : null}
                 {errors.tipo_investidor ? <span className="error">{errors.tipo_investidor.message}</span> : null}
+
+                <input type="text" className="form-input" id="instituicao_ensino" name="instituicao_ensino" placeholder="Sua Instituição de Ensino" {...register('instituicao_ensino')}/>
+                {errors.instituicao_ensino ? <span className="error">{errors.instituicao_ensino.message}</span> : null}
 
                 <h2>Informe seu endereço</h2>
                 <input type="text" className="form-input" id="cep" name="cep" placeholder="CEP" maxLength="9"
@@ -108,14 +140,24 @@ export default function Cadastro() {
 
                 <input type="submit" className="btn btn-primary" value="Finalizar Cadastro" />
 
-                <div className="form-inline">
-                    <button type="submit" className="btn btn-light">Google</button>
-                    <button type="submit" className="btn btn-light">Facebook</button>
-                </div>
             </form>
+
             <div className="form-text" id="register">
                 Já possui uma conta? <Link to="/login" title="Login">Acesse Aqui</Link>
             </div>
+
+            <div
+                id="modal-cadastro"
+                className="modal"
+                style={modalOpened ? { display: 'block' } : { display: 'none' }}
+            >
+                <div className="modal-content">
+                    <span className="close" onClick={() => setModalOpened(false)}>&times;</span>
+                    <p>Usuário cadastrado com suceeso</p>
+                    <Link to="/" className="btn btn-primary" title="Voltar">Voltar</Link>
+                </div>
+            </div>
+
         </section>
     );
 }

@@ -51,13 +51,15 @@ export default function Trilha({match}) {
             <section className="content-trail">
                 <div className="wrapper">
                     {
-                        fasesTrilha.map((faseTrilha) => (
-                            <div className="trail-step" key={ faseTrilha.numero_fase }>
-                                <div className={ classeFase(faseTrilha.numero_fase) }>
-                                    <span>{ faseTrilha.numero_fase }</span>
+                        fasesTrilha.length > 0
+                            ? fasesTrilha.map((faseTrilha) => (
+                                <div className="trail-step" key={ faseTrilha.numero_fase }>
+                                    <div className={ classeFase(faseTrilha.numero_fase) }>
+                                        <span>{ faseTrilha.numero_fase }</span>
+                                    </div>
                                 </div>
-                            </div>
-                        )) || <p>Carregando...</p>
+                            ))
+                            : <h2>Carregando...</h2>
                     }
                 </div>
             </section>

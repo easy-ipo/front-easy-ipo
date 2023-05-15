@@ -2,6 +2,12 @@
 @import "_header-footer.css";
 @import "_menu-mobile.css";
 
+.content-trail h2 {
+    color: #FFFFFF;
+    text-align: center;
+    margin: 2rem 0;
+}
+
 .trail-step {
     height: 200px;
     display: flex;
