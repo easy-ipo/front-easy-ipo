@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 export default function Home() {
 
@@ -7,8 +8,6 @@ export default function Home() {
     const [trilhaPrincipal, setTrilhaPrincipal] = useState({});
 
     useEffect(() => {
-        import('./../assets/css/home.css');
-
         fetch('/trilhas')
             .then(resp => resp.json())
             .then(resp => setTrilhas(resp));
@@ -32,6 +31,10 @@ export default function Home() {
 
     return (
         <>
+            <Helmet>
+                <title>EasyIPO - Aprenda a investir de uma forma diferente.</title>
+                <link rel="stylesheet" href="/css/home.css" />
+            </Helmet>
             <div className="content-home">
                 <div className="wrapper">
 

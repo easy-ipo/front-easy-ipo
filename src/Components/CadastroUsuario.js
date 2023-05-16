@@ -5,6 +5,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import {Link} from "react-router-dom";
 import axios from "axios";
+import Helmet from "react-helmet";
+
 
 export default function Cadastro() {
 
@@ -15,9 +17,6 @@ export default function Cadastro() {
         fetch('/perfil_investidor')
             .then(resp => resp.json())
             .then(resp => setPerfisUsuario(resp));
-
-        import('./../assets/css/forms.css');
-        import('./../assets/css/_modal.css');
     }, []);
 
     const schema = yup.object({
@@ -86,78 +85,86 @@ export default function Cadastro() {
     }
 
     return (
-        <section className="form-container form-register">
-            <form onSubmit={handleSubmit(cadastrarUsuario)}>
-                <input type="text" className="form-input" id="nome" name="nome" placeholder="Seu nome" {...register('nome')} />
-                {errors.nome ? <span className="error">{errors.nome.message}</span> : null}
+        <>
+            <Helmet>
+                <title>EasyIPO - Cadastre-se</title>
+                <link rel="stylesheet" href="/css/forms.css" />
+                <link rel="stylesheet" href="/css/_modal.css" />
+            </Helmet>
 
-                <input type="email" className="form-input" id="email" name="email" placeholder="Seu email" {...register('email')} />
-                {errors.email ? <span className="error">{errors.email.message}</span> : null}
+            <section className="form-container form-register">
+                <form onSubmit={handleSubmit(cadastrarUsuario)}>
+                    <input type="text" className="form-input" id="nome" name="nome" placeholder="Seu nome" {...register('nome')} />
+                    {errors.nome ? <span className="error">{errors.nome.message}</span> : null}
 
-                <input type="password" className="form-input" id="senha" name="senha" placeholder="Sua senha" {...register('senha')}/>
-                {errors.senha ? <span className="error">{errors.senha.message}</span> : null}
+                    <input type="email" className="form-input" id="email" name="email" placeholder="Seu email" {...register('email')} />
+                    {errors.email ? <span className="error">{errors.email.message}</span> : null}
 
-                <div className="form-inline">
-                    <input type="number" step="1" className="form-input" id="idade" name="idade" placeholder="Sua idade"
-                           {...register('idade')} />
-                    <select name="tipo_investidor" id="tipo_investidor" className="form-select minimal" {...register('tipo_investidor')}>
-                        <option value="">Perfil de investidor</option>
-                        {
-                            perfisUsuario.map(perfil =>
-                                <option key={perfil.codigo_perfil} value={perfil.codigo_perfil}>{perfil.tipo}</option>
-                            )
-                        }   
-                    </select>
+                    <input type="password" className="form-input" id="senha" name="senha" placeholder="Sua senha" {...register('senha')}/>
+                    {errors.senha ? <span className="error">{errors.senha.message}</span> : null}
+
+                    <div className="form-inline">
+                        <input type="number" step="1" className="form-input" id="idade" name="idade" placeholder="Sua idade"
+                               {...register('idade')} />
+                        <select name="tipo_investidor" id="tipo_investidor" className="form-select minimal" {...register('tipo_investidor')}>
+                            <option value="">Perfil de investidor</option>
+                            {
+                                perfisUsuario.map(perfil =>
+                                    <option key={perfil.codigo_perfil} value={perfil.codigo_perfil}>{perfil.tipo}</option>
+                                )
+                            }
+                        </select>
+                    </div>
+                    {errors.idade ? <span className="error">{errors.idade.message}</span> : null}
+                    {errors.tipo_investidor ? <span className="error">{errors.tipo_investidor.message}</span> : null}
+
+                    <input type="text" className="form-input" id="instituicao_ensino" name="instituicao_ensino" placeholder="Sua Instituição de Ensino" {...register('instituicao_ensino')}/>
+                    {errors.instituicao_ensino ? <span className="error">{errors.instituicao_ensino.message}</span> : null}
+
+                    <h2>Informe seu endereço</h2>
+                    <input type="text" className="form-input" id="cep" name="cep" placeholder="CEP" maxLength="9"
+                           {...register('cep')} onBlur={buscarCep} />
+                    {errors.cep ? <span className="error">{errors.cep.message}</span> : null}
+
+                    <input type="text" className="form-input" id="logradouro" name="logradouro" placeholder="Logradouro" {...register('logradouro')} />
+                    {errors.logradouro ? <span className="error">{errors.logradouro.message}</span> : null}
+
+                    <div className="form-inline">
+                        <input type="number" step="1" className="form-input" id="numero" name="numero" placeholder="Número" {...register('numero')} />
+                        <input type="text" step="1" className="form-input" id="complemento" name="complemento" placeholder="Complemento" {...register('complemento')} />
+                    </div>
+                    {errors.numero ? <span className="error">{errors.numero.message}</span> : null}
+                    <input type="text" className="form-input" id="bairro" name="bairro" placeholder="Bairro" {...register('bairro')} />
+                    {errors.bairro ? <span className="error">{errors.bairro.message}</span> : null}
+
+                    <div className="form-inline">
+                        <input type="text" className="form-input" id="uf" name="uf" placeholder="UF" maxLength="2" {...register('uf')} />
+                        <input type="text" className="form-input" id="cidade" name="cidade" placeholder="Cidade" {...register('cidade')} />
+                    </div>
+                    {errors.uf ? <span className="error">{errors.uf.message}</span> : null}
+                    {errors.cidade ? <span className="error">{errors.cidade.message}</span> : null}
+
+                    <input type="submit" className="btn btn-primary" value="Finalizar Cadastro" />
+
+                </form>
+
+                <div className="form-text" id="register">
+                    Já possui uma conta? <Link to="/login" title="Login">Acesse Aqui</Link>
                 </div>
-                {errors.idade ? <span className="error">{errors.idade.message}</span> : null}
-                {errors.tipo_investidor ? <span className="error">{errors.tipo_investidor.message}</span> : null}
 
-                <input type="text" className="form-input" id="instituicao_ensino" name="instituicao_ensino" placeholder="Sua Instituição de Ensino" {...register('instituicao_ensino')}/>
-                {errors.instituicao_ensino ? <span className="error">{errors.instituicao_ensino.message}</span> : null}
-
-                <h2>Informe seu endereço</h2>
-                <input type="text" className="form-input" id="cep" name="cep" placeholder="CEP" maxLength="9"
-                       {...register('cep')} onBlur={buscarCep} />
-                {errors.cep ? <span className="error">{errors.cep.message}</span> : null}
-
-                <input type="text" className="form-input" id="logradouro" name="logradouro" placeholder="Logradouro" {...register('logradouro')} />
-                {errors.logradouro ? <span className="error">{errors.logradouro.message}</span> : null}
-
-                <div className="form-inline">
-                    <input type="number" step="1" className="form-input" id="numero" name="numero" placeholder="Número" {...register('numero')} />
-                    <input type="text" step="1" className="form-input" id="complemento" name="complemento" placeholder="Complemento" {...register('complemento')} />
+                <div
+                    id="modal-cadastro"
+                    className="modal"
+                    style={modalOpened ? { display: 'block' } : { display: 'none' }}
+                >
+                    <div className="modal-content">
+                        <span className="close" onClick={() => setModalOpened(false)}>&times;</span>
+                        <p>Usuário cadastrado com suceeso</p>
+                        <Link to="/" className="btn btn-primary" title="Voltar">Voltar</Link>
+                    </div>
                 </div>
-                {errors.numero ? <span className="error">{errors.numero.message}</span> : null}
-                <input type="text" className="form-input" id="bairro" name="bairro" placeholder="Bairro" {...register('bairro')} />
-                {errors.bairro ? <span className="error">{errors.bairro.message}</span> : null}
 
-                <div className="form-inline">
-                    <input type="text" className="form-input" id="uf" name="uf" placeholder="UF" maxLength="2" {...register('uf')} />
-                    <input type="text" className="form-input" id="cidade" name="cidade" placeholder="Cidade" {...register('cidade')} />
-                </div>
-                {errors.uf ? <span className="error">{errors.uf.message}</span> : null}
-                {errors.cidade ? <span className="error">{errors.cidade.message}</span> : null}
-
-                <input type="submit" className="btn btn-primary" value="Finalizar Cadastro" />
-
-            </form>
-
-            <div className="form-text" id="register">
-                Já possui uma conta? <Link to="/login" title="Login">Acesse Aqui</Link>
-            </div>
-
-            <div
-                id="modal-cadastro"
-                className="modal"
-                style={modalOpened ? { display: 'block' } : { display: 'none' }}
-            >
-                <div className="modal-content">
-                    <span className="close" onClick={() => setModalOpened(false)}>&times;</span>
-                    <p>Usuário cadastrado com suceeso</p>
-                    <Link to="/" className="btn btn-primary" title="Voltar">Voltar</Link>
-                </div>
-            </div>
-
-        </section>
+            </section>
+        </>
     );
 }

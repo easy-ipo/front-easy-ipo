@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import {Link} from "react-router-dom";
 import ModalConquista from "./Partials/ModalConquista";
+import {Helmet} from "react-helmet";
 
 export default function Trilha({match}) {
 
@@ -12,9 +13,6 @@ export default function Trilha({match}) {
     const [fase, setFase] = useState(1);
 
     useEffect(() => {
-        import('./../assets/css/trail.css');
-        import('./../assets/css/_modal.css');
-
         fetch('/fases_trilhas/trilha/' + codigo_trilha)
             .then(resp => resp.json())
             .then(resp => setFasesTrilha(resp));
@@ -48,6 +46,11 @@ export default function Trilha({match}) {
 
     return (
         <>
+            <Helmet>
+                <title>EasyIPO - Trilhas</title>
+                <link rel="stylesheet" href="/css/trail.css" />
+                <link rel="stylesheet" href="/css/_modal.css" />
+            </Helmet>
             <section className="content-trail">
                 <div className="wrapper">
                     {
