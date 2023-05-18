@@ -56,11 +56,16 @@ export default function Trilha({match}) {
                     {
                         fasesTrilha.length > 0
                             ? fasesTrilha.map((faseTrilha) => (
-                                <div className="trail-step" key={ faseTrilha.numero_fase }>
+                                <Link
+                                    to={'/conteudo-trilha/' + faseTrilha.codigo_fase_trilha}
+                                    title={'Iniciar Fase ' + faseTrilha.numero_fase}
+                                    className="trail-step"
+                                    key={ faseTrilha.numero_fase }
+                                >
                                     <div className={ classeFase(faseTrilha.numero_fase) }>
                                         <span>{ faseTrilha.numero_fase }</span>
                                     </div>
-                                </div>
+                                </Link>
                             ))
                             : <h2>Carregando...</h2>
                     }
